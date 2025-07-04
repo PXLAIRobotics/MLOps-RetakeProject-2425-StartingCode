@@ -25,7 +25,7 @@ It includes:
 
 Follow these steps to get started, download example data (e.g., the Favorita dataset), and begin your project workflow.
 
-1. **Clone this repository**
+** 1. **Clone this repository**
 
    Run the following commands in a Unix-like environment (Linux, macOS, or WSL).
    Note: Native Windows terminals are not recommended due to compatibility issues.
@@ -38,7 +38,7 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
      cd MLOps-RetakeProject-2425-StartingCode
    #+END_SRC
 
-2. **Get familiar with the structure**
+** 2. **Get familiar with the structure**
 
    Read the structure overview depicted below to understand the purpose of:
    - `commands/`
@@ -65,7 +65,7 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
   #+END_SRC
 
 
-3. **Build the devbox**
+** 3. **Build the devbox**
 
    This sets up a containerised Python environment with all dependencies:
 
@@ -74,7 +74,7 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
      ./001_build_image.bash
    #+END_SRC
 
-4. **Start the devbox**
+** 4. **Start the devbox**
    
    #+BEGIN_SRC bash
      ./002_start_devbox.bash
@@ -91,24 +91,24 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
 
    This `.bash` script can be easily extended with extra volumes if needed.
 
-5. **Get your Kaggle API key**
+** 5. **Get your Kaggle API key**
 
    - Go to: https://www.kaggle.com/account
    - Click “Create New API Token” under the *API* section
    - This downloads a file: `kaggle.json`
 
-6. **Place the API key into the correct folder**
+** 6. **Place the API key into the correct folder**
 
    Put the `kaggle.json` file in the `config/kaggle` directory on your host machine, it will automatically be available in the container.
 
-7. **Accept the Kaggle dataset terms** (if needed!)
+** 7. **Accept the Kaggle dataset terms** (if needed!)
 
    In this example we are going to use the Favorita Grocery Sales Forecasting dataset. Therefore, we need to accept the terms of this dataset.
 
    Visit the dataset page and click "Join Competition", and follow the necessary steps.
    https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting
 
-8. **Download the Favorita dataset**
+** 8. **Download the Favorita dataset**
 
    Inside the devbox:
 
@@ -118,7 +118,7 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
 
    This will download the dataset (if `kaggle.json` is configured and the terms are accepted) and extract it into `/data`.
 
-9. **Explore the data**
+** 9. **Explore the data**
 
    The data will be located in:
 
@@ -139,11 +139,11 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
 
      *Pro tip*: Keep an exploration log in Markdown to stay organized and avoid information overload.
 
-10. **Read the project assignment**
+** 10. **Read the project assignment**
 
     Consult the retake project assignment brief of the MLOps and/or Big Data course.
 
-11. **Check out the weekly train split script for Favorita**
+** 11. **Check out the weekly train split script for Favorita**
 
     #+BEGIN_SRC bash
       $ /scripts/split_favorita_train_in_weeks.py 
@@ -172,7 +172,7 @@ The `train.csv` file is quite large, so splitting it into smaller weekly files m
 
     This tool allows you to split the `train.csv` file into weekly chunks.
 
-12. **Split the Favorita data as needed**
+** 12. **Split the Favorita data as needed**
 
     Examples:
 
@@ -201,11 +201,11 @@ The `train.csv` file is quite large, so splitting it into smaller weekly files m
         ✅ Saved /data/raw_data/favorita-grocery-sales-forecasting/weeks/train_2016-W14.csv — 674518 rows
       #+END_SRC
 
-13. **Do your project work**
+** 13. **Do your project work**
 
     Use the weekly datasets, train models, explore drift, build pipelines — whatever your assignment requires.
 
-14. **Iterate**
+** 14. **Iterate**
 
     As your project evolves, keep refining your work by:
     - Revisit step 10 regularly to stay aligned with the project requirements.
