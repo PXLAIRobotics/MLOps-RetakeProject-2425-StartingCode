@@ -1,0 +1,69 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+
+# Jupyter notebooks (optional)
+.ipynb_checkpoints/
+
+# VSCode and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Mac system files
+.DS_Store
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Secrets and credentials
+config/kaggle/kaggle.json
+**/kaggle.json
+
+# Datasets (do not track raw data)
+data/raw_data/
+data/interim/
+data/processed/
+data/output/
+# Weekly split output
+data/raw_data/*/weeks/
+
+# Archives
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tar.bz2
+*.rar
+
+# Docker volumes (if mounted externally)
+docker_volumes/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.out
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Optional: compiled scripts
+scripts/*.pyc
+
+# Optional: lock files
+poetry.lock
+Pipfile.lock
