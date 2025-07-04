@@ -12,7 +12,7 @@ It is designed to accelerate dataset acquisition and experimentation, and to pro
 It includes:
 
 - A containerised (Docker-based) Ubuntu 24.04 LTS "devbox"
-  -Equipped with essential tools (e.g., Python, VisiData, ...) and easily extensible via `pip3 install` & `requirements.txt`, and a clean Dockerfile.
+  - Equipped with essential tools (e.g., Python, VisiData, ...) and easily extensible via `pip3 install` & `requirements.txt`, and a clean Dockerfile.
   - Ready to download and split necessary data set(s).
     - Includes scripts to retrieve datasets from Kaggle and store them in a persistent volume
     - Out-of-the-box access to configuration files of third-party credentials (e.g., `kaggle.json` in ./config/kaggle)
