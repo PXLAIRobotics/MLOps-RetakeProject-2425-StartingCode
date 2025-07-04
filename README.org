@@ -12,10 +12,10 @@ It is designed to accelerate dataset acquisition and experimentation, and to pro
 It includes:
 
 - A containerised (Docker-based) Ubuntu 24.04 LTS "devbox"
-  - Equipped with essential tools (e.g., Python, VisiData, ...) and easily extensible via `pip3 install` & `requirements.txt`, and a clean Dockerfile.
+  - Equipped with essential tools (e.g., Python, VisiData, ...) and easily extensible via ~pip3 install~ & ~requirements.txt~, and a clean Dockerfile.
   - Ready to download and split necessary data set(s).
     - Includes scripts to retrieve datasets from Kaggle and store them in a persistent volume
-    - Out-of-the-box access to configuration files of third-party credentials (e.g., `kaggle.json` in ./config/kaggle)
+    - Out-of-the-box access to configuration files of third-party credentials (e.g., ~kaggle.json~ in ~./config/kaggle~)
     - Provides utilities for chunking or splitting time-series data (e.g., weekly splits like for Favorita)
 - Clearly defined folders for persistent data, configuration, and scripts
 
@@ -25,28 +25,28 @@ It includes:
 
 Follow these steps to get started, download example data (e.g., the Favorita dataset), and begin your project workflow.
 
-** 1. **Clone this repository**
+** 1. *Clone this repository*
 
    Run the following commands in a Unix-like environment (Linux, macOS, or WSL).
    Note: Native Windows terminals are not recommended due to compatibility issues.
 
    #+BEGIN_SRC bash
-     git clone git@github.com:PXLAIRobotics/MLOps-RetakeProject-2425-StartingCode.git
+     $ git clone git@github.com:PXLAIRobotics/MLOps-RetakeProject-2425-StartingCode.git
      # Or: gh repo clone PXLAIRobotics/MLOps-RetakeProject-2425-StartingCode
      # Or: git clone https://github.com/PXLAIRobotics/MLOps-RetakeProject-2425-StartingCode.git
      # Or: go to https://github.com/PXLAIRobotics/MLOps-RetakeProject-2425-StartingCode and download the ZIP and extract it.
-     cd MLOps-RetakeProject-2425-StartingCode
+     $ cd MLOps-RetakeProject-2425-StartingCode
    #+END_SRC
 
-** 2. **Get familiar with the structure**
+** 2. *Get familiar with the structure*
 
    Read the structure overview depicted below to understand the purpose of:
-   - `commands/`
-   - `config/`
-   - `scripts/`
-   - `infrastructure/devbox/`
-   - `data/` and its subdirectory `raw_data/`
-   - `config/kaggle/`
+   - ~commands/~
+   - ~config/~
+   - ~scripts/~
+   - ~infrastructure/devbox/~
+   - ~data/~ and its subdirectory ~raw_data/~
+   - ~config/kaggle/~
 
   🗂️ Repository Structure
 
@@ -65,85 +65,85 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
   #+END_SRC
 
 
-** 3. **Build the devbox**
+** 3. *Build the devbox*
 
    This sets up a containerised Python environment with all dependencies:
 
    #+BEGIN_SRC bash
-     cd infrastructure/devbox
-     ./001_build_image.bash
+     $ cd infrastructure/devbox
+     $ ./001_build_image.bash
    #+END_SRC
 
-** 4. **Start the devbox**
+** 4. *Start the devbox*
    
    #+BEGIN_SRC bash
-     ./002_start_devbox.bash
+     $ ./002_start_devbox.bash
    #+END_SRC
 
    This mounts your folders into the container:
    | DIR on repository | DIR in container | Extra information                             |
    |-------------------+------------------+-----------------------------------------------|
-   | `├── commands/`   | `/commands       | This directory is automatically added to PATH |
-   | `├── config/`     | `/config`        |                                               |
-   | `├── data/`       | `/data`          |                                               |
-   | `├── scripts/`    | `/scripts`       | This directory is automatically added to PATH |
+   | ~├── commands/~     | ~/commands~        | This directory is automatically added to PATH |
+   | ~├── config/~       | ~/config~          |                                               |
+   | ~├── data/~         | ~/data~            |                                               |
+   | ~├── scripts/~      | ~/scripts~         | This directory is automatically added to PATH |
    |-------------------+------------------+-----------------------------------------------|
 
-   This `.bash` script can be easily extended with extra volumes if needed.
+   This ~.bash~ script can be easily extended with extra volumes if needed.
 
-** 5. **Get your Kaggle API key**
+** 5. *Get your Kaggle API key*
 
    - Go to: https://www.kaggle.com/account
    - Click “Create New API Token” under the *API* section
-   - This downloads a file: `kaggle.json`
+   - This downloads a file: ~kaggle.json~
 
-** 6. **Place the API key into the correct folder**
+** 6. *Place the API key into the correct folder*
 
-   Put the `kaggle.json` file in the `config/kaggle` directory on your host machine, it will automatically be available in the container.
+   Put the ~kaggle.json~ file in the ~config/kaggle~ directory on your host machine, it will automatically be available in the container.
 
-** 7. **Accept the Kaggle dataset terms** (if needed!)
+** 7. *Accept the Kaggle dataset terms* (if needed!)
 
    In this example we are going to use the Favorita Grocery Sales Forecasting dataset. Therefore, we need to accept the terms of this dataset.
 
    Visit the dataset page and click "Join Competition", and follow the necessary steps.
    https://www.kaggle.com/competitions/favorita-grocery-sales-forecasting
 
-** 8. **Download the Favorita dataset**
+** 8. *Download the Favorita dataset*
 
    Inside the devbox:
 
    #+BEGIN_SRC bash
-     run_kaggle_download_script /scripts/download_favorita.py
+     $ run_kaggle_download_script /scripts/download_favorita.py
    #+END_SRC
 
-   This will download the dataset (if `kaggle.json` is configured and the terms are accepted) and extract it into `/data`.
+   This will download the dataset (if ~kaggle.json~ is configured and the terms are accepted) and extract it into ~/data~.
 
-** 9. **Explore the data**
+** 9. *Explore the data*
 
    The data will be located in:
 
    #+BEGIN_SRC bash
-     data/raw_data/favorita-grocery-sales-forecasting/
+     $ data/raw_data/favorita-grocery-sales-forecasting/
    #+END_SRC
 
    You can explore the data using:
-   - Your own Python scripts (place them in `/scripts`)
-   - Or the excellent terminal-based tool `visidata` ([[https://www.visidata.org/][VisiData: Open-source data multitool]])
+   - Your own Python scripts (place them in ~/scripts~)
+   - Or the excellent terminal-based tool [[https://www.visidata.org/][VisiData: Open-source data multitool]].
 
      For example:
      #+BEGIN_SRC bash
-       vd /data/raw_data/favorita-grocery-sales-forecasting/train.csv
+       $ vd /data/raw_data/favorita-grocery-sales-forecasting/train.csv
      #+END_SRC
 
      Inspect all files.
 
      *Pro tip*: Keep an exploration log in Markdown to stay organized and avoid information overload.
 
-** 10. **Read the project assignment**
+** 10. *Read the project assignment*
 
     Consult the retake project assignment brief of the MLOps and/or Big Data course.
 
-** 11. **Check out the weekly train split script for Favorita**
+** 11. *Check out the weekly train split script for Favorita*
 
     #+BEGIN_SRC bash
       $ /scripts/split_favorita_train_in_weeks.py 
@@ -155,7 +155,7 @@ Follow these steps to get started, download example data (e.g., the Favorita dat
          --year YYYY --start-week W --weeks N  Start from ISO Week W
     #+END_SRC
 
-The `train.csv` file is quite large, so splitting it into smaller weekly files may improve performance and enable meaningful MLOps or Big Data operations.
+The ~train.csv~ file is quite large, so splitting it into smaller weekly files may improve performance and enable meaningful MLOps or Big Data operations.
 
     #+BEGIN_SRC bash
       $ /scripts/split_favorita_train_in_weeks.py --overview
@@ -170,9 +170,9 @@ The `train.csv` file is quite large, so splitting it into smaller weekly files m
       
     #+END_SRC
 
-    This tool allows you to split the `train.csv` file into weekly chunks.
+    This tool allows you to split the ~train.csv~ file into weekly chunks.
 
-** 12. **Split the Favorita data as needed**
+** 12. *Split the Favorita data as needed*
 
     Examples:
 
@@ -201,11 +201,11 @@ The `train.csv` file is quite large, so splitting it into smaller weekly files m
         ✅ Saved /data/raw_data/favorita-grocery-sales-forecasting/weeks/train_2016-W14.csv — 674518 rows
       #+END_SRC
 
-** 13. **Do your project work**
+** 13. *Do your project work*
 
     Use the weekly datasets, train models, explore drift, build pipelines — whatever your assignment requires.
 
-** 14. **Iterate**
+** 14. *Iterate*
 
     As your project evolves, keep refining your work by:
     - Revisit step 10 regularly to stay aligned with the project requirements.
@@ -219,13 +219,13 @@ The `train.csv` file is quite large, so splitting it into smaller weekly files m
 
 Use this directory to implement the requested architecture using Docker compose and all related and necessary tools.
 Use the devbox as inspiration. Leverage Docker volumes for persistent storage and shared data access between containers if needed.
-You can also add sub-directories in `commands, config, scripts, ...` and use those as volumes in order to segregate scripts for specific containers.
+You can also add sub-directories in ~commands, config, scripts, ...~ and use those as volumes in order to segregate scripts for specific containers.
 
 
 * 📁 scripts/
 
 Add additional scripts to this directory. It’s recommended to organize them into subdirectories.
-You may also create top-level folders like `src/` if your project requires it.
+You may also create top-level folders like ~src/~ if your project requires it.
 
 * 📁 documentation/
 
